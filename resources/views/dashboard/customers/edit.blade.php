@@ -15,7 +15,8 @@
             @csrf
             @method('PUT')
 
-            <div class="space-y-6 max-w-6xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 max-w-6xl gap-6">
+
                 <div>
                     <x-input-label for="name" value="Name" />
 
@@ -30,14 +31,7 @@
 
                     <x-input-error :messages="$errors->get('phone')" class="mt-1" />
                 </div>
-                <div>
-                    <x-input-label for="address" value="Alamat" />
 
-                    <x-text-input id="address" name="address" value="{{ old('address', $customer->address) }}"
-                        required />
-
-                    <x-input-error :messages="$errors->get('address')" class="mt-1" />
-                </div>
                 <div>
                     <x-input-label for="vehicle_type" value="Tipe Mobil" />
 
@@ -54,8 +48,16 @@
 
                     <x-input-error :messages="$errors->get('vehicle_plate')" class="mt-1" />
                 </div>
+                <div class="col-span-1 sm:col-span-2">
+                    <x-input-label for="address" value="Alamat" />
 
-                <div class="flex justify-end">
+                    <x-text-input id="address" name="address" value="{{ old('address', $customer->address) }}"
+                        required />
+
+                    <x-input-error :messages="$errors->get('address')" class="mt-1" />
+                </div>
+
+                <div class="col-span-1 sm:col-span-2 flex justify-end">
                     <x-primary-button>
                         <i class="fas fa-save mr-2"></i> Simpan
                     </x-primary-button>

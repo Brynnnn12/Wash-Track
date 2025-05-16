@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -20,8 +21,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        Route::middleware('role:Admin')->group(function () {
+            Route::resource('users', UserController::class);
+            Route::resource('services', ServiceController::class);
+        });
+
         Route::resource('customers', CustomerController::class);
-        Route::resource('services', ServiceController::class);
         Route::resource('transactions', TransactionController::class);
         Route::resource('reports', ReportController::class);
     });

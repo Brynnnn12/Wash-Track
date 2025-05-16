@@ -8,6 +8,11 @@ use App\Http\Requests\UpdateServiceRequest;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Service::class, 'service');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -33,9 +38,13 @@ class ServiceController extends Controller
     public function store(StoreServiceRequest $request)
     {
         //
-        $validated = $request->validated();
-        $service = Service::create($validated);
-        return redirect()->route('dashboard.services.index')->with('success', 'Service created successfully.');
+        try {
+            $validated = $request->validated();
+            $service = Service::create($validated);
+            return redirect()->route('dashboard.services.index')->with('success', 'Service Berhasil Dibuat.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal Saat Membuat Service: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -61,9 +70,13 @@ class ServiceController extends Controller
     public function update(UpdateServiceRequest $request, Service $service)
     {
         //
-        $validated = $request->validated();
-        $service->update($validated);
-        return redirect()->route('dashboard.services.index')->with('success', 'Service updated successfully.');
+        try {
+            $validated = $request->validated();
+            $service->update($validated);
+            return redirect()->route('dashboard.services.index')->with('success', 'Service Berhasil Diperbarui.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal Saat Mengupdate Service: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -72,7 +85,11 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         //
-        $service->delete();
-        return redirect()->route('dashboard.services.index')->with('success', 'Service deleted successfully.');
+        try {
+            $service->delete();
+            return redirect()->route('dashboard.services.index')->with('success', 'Service Berhasil Dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal Saat Menghapus Service: ' . $e->getMessage());
+        }
     }
 }

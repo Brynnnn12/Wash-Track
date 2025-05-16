@@ -1,11 +1,9 @@
 <x-app-layout>
     <div class="bg-white p-6 rounded-xl shadow-sm card">
         <x-breadcrumb :links="[
-            'reports' => null,
+            'Laporan' => null,
         ]" />
 
-        <!-- Notifikasi Sukses atau Error -->
-        <x-dashboard.message />
 
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
@@ -29,11 +27,11 @@
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total
-                            Income
+                            Pendapatan
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total
-                            Transactions
+                            Transaksi
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi

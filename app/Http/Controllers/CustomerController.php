@@ -37,11 +37,6 @@ class CustomerController extends Controller
 
         $customer = Customer::create($validated);
 
-        // // Buat transaksi otomatis dengan customer_id dan status default
-        // $customer->transactions()->create([
-        //     'status' => 'pending', // Status default
-        // ]);
-
 
         return redirect()->route('dashboard.transactions.index')->with('success', 'Customer created successfully.');
     }

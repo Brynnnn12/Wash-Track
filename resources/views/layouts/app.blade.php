@@ -17,6 +17,11 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body class="font-sans antialiased bg-gray-100">
@@ -29,18 +34,16 @@
             <!-- Navbar -->
             <x-dashboard.navbar />
 
+            <!-- Message -->
+            <x-dashboard.message />
+
             <!-- Page Content -->
             <main class="flex-1 p-6  bg-gray-100">
                 <div class="container mx-auto ">
                     {{ $slot }}
                 </div>
             </main>
-            <footer class="bg-white border-t border-gray-200 py-4">
-                <div class="max-w-6xl mx-auto px-4 text-center text-gray-500 text-sm">
-                    <p>&copy; <span id="year"></span> PT. Mencari Cinta Sejati Digital. All rights reserved.</p>
-                </div>
-            </footer>
-
+            <x-dashboard.footer />
         </div>
 
     </div>

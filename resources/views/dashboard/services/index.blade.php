@@ -4,8 +4,6 @@
             'Services' => null,
         ]" />
 
-        <!-- Notifikasi Sukses atau Error -->
-        <x-dashboard.message />
 
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">

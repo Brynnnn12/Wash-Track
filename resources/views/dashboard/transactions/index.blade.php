@@ -1,11 +1,9 @@
 <x-app-layout>
     <div class="bg-white p-6 rounded-xl shadow-sm card">
         <x-breadcrumb :links="[
-            'transactions' => null,
+            'Transaksi' => null,
         ]" />
 
-        <!-- Notifikasi Sukses atau Error -->
-        <x-dashboard.message />
 
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
@@ -69,11 +67,30 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                 Rp {{ number_format($transaction->total_price, 0, ',', '.') }} </td>
+
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                                {{ $transaction->payment_method }}
+                                {{-- Pembayaran: Icon + Teks --}}
+                                @if ($transaction->payment_method === 'cash')
+                                    <i class="fas fa-money-bill-wave text-green-500 mr-1"></i> Cash
+                                @elseif($transaction->payment_method === 'bank_transfer')
+                                    <i class="fas fa-university text-blue-500 mr-1"></i> Transfer
+                                @elseif($transaction->payment_method === 'credit_card')
+                                    <i class="fas fa-credit-card text-yellow-500 mr-1"></i> Kartu Kredit
+                                @else
+                                    <i class="fas fa-question-circle text-gray-400 mr-1"></i> Tidak Diketahui
+                                @endif
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                                {{ $transaction->status }}
+                                {{-- Status: Icon Saja --}}
+                                @if ($transaction->status === 'completed')
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                @elseif($transaction->status === 'pending')
+                                    <i class="fas fa-spinner text-yellow-500"></i>
+                                @elseif($transaction->status === 'cancelled')
+                                    <i class="fas fa-times-circle text-red-500"></i>
+                                @else
+                                    <i class="fas fa-question-circle text-gray-400"></i>
+                                @endif
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

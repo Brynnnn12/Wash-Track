@@ -4,9 +4,6 @@
             'Customers' => null,
         ]" />
 
-        <!-- Notifikasi Sukses atau Error -->
-        <x-dashboard.message />
-
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <h3 class="text-lg font-semibold text-gray-800">Daftar Customers</h3>
