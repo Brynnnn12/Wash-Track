@@ -6,10 +6,10 @@
                 Buat Transaksi Baru
             </h3>
 
-            <a href="{{ route('dashboard.transactions.index') }}"
-                class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg flex items-center transition-colors duration-300 mt-4 md:mt-0">
+            <x-link href="{{ route('dashboard.transactions.index') }}">
                 <i class="fas fa-arrow-left mr-2"></i> Kembali
-            </a>
+            </x-link>
+
         </div>
 
         <form action="{{ route('dashboard.transactions.store') }}" method="POST">
@@ -98,10 +98,9 @@
 
                 {{-- Tombol --}}
                 <div class="flex justify-end">
-                    <button type="submit"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors duration-300">
+                    <x-primary-button>
                         <i class="fas fa-save mr-2"></i> Simpan
-                    </button>
+                    </x-primary-button>
                 </div>
 
             </div>

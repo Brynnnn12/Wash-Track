@@ -30,10 +30,9 @@
                     <x-input-error :messages="$errors->get('price')" class="mt-1" />
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors duration-300">
+                    <x-primary-button>
                         <i class="fas fa-save mr-2"></i> Simpan
-                    </button>
+                    </x-primary-button>
                 </div>
             </div>
         </form>
