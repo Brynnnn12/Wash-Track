@@ -11,6 +11,7 @@ use App\Http\Controllers\TransactionController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/public/transactions/{id}', [TransactionController::class, 'publicShow'])->name('transactions.public.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,7 +28,9 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::resource('customers', CustomerController::class);
+        Route::get('/transactions/{transaction}/struk', [TransactionController::class, 'cetakStruk'])->name('transactions.struk');
         Route::resource('transactions', TransactionController::class);
+        Route::get('/reports/pdf', [ReportController::class, 'exportPdf'])->name('reports.pdf');
         Route::resource('reports', ReportController::class);
     });
 });

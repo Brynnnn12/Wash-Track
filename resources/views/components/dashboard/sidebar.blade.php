@@ -24,8 +24,7 @@
     <nav class="mt-4 px-3 space-y-1.5">
         <!-- Dashboard -->
         <a href="{{ route('dashboard') }}"
-            class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-            :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard') }">
+            class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
             <div class="w-8 h-8 flex items-center justify-center">
                 <i class="fa-solid fa-house text-white/80 group-hover:text-white"></i>
             </div>
@@ -33,10 +32,10 @@
         </a>
 
         @role('Admin')
-            <!-- Users -->
-            <a href="{{ route('dashboard.users.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.users.*') }">
+    <!-- Users -->
+                <a href="{{ route('dashboard.users.index') }}"
+                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
+                    ">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-user-shield text-white/80 group-hover:text-white"></i>
                 </div>
@@ -44,18 +43,17 @@
             </a>
             <!-- Customers -->
             <a href="{{ route('dashboard.customers.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.customers.*') }">
-                <div class="w-8 h-8 flex items-center justify-center">
-                    <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
-                </div>
-                <span class="font-medium">Pelanggan</span>
-            </a>
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
+                    </div>
+                    <span class="font-medium">Pelanggan</span>
+                </a>
 
-            <!-- Services -->
-            <a href="{{ route('dashboard.services.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.services.*') }">
+                <!-- Services -->
+                <a href="{{ route('dashboard.services.index') }}"
+                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
+                    ">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-broom text-white/80 group-hover:text-white"></i>
                 </div>
@@ -64,18 +62,17 @@
 
             <!-- Transactions -->
             <a href="{{ route('dashboard.transactions.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.transactions.*') }">
-                <div class="w-8 h-8 flex items-center justify-center">
-                    <i class="fa-solid fa-receipt text-white/80 group-hover:text-white"></i>
-                </div>
-                <span class="font-medium">Transaksi</span>
-            </a>
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="fa-solid fa-receipt text-white/80 group-hover:text-white"></i>
+                    </div>
+                    <span class="font-medium">Transaksi</span>
+                </a>
 
-            <!-- Reports -->
-            <a href="{{ route('dashboard.reports.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.reports.*') }">
+                <!-- Reports -->
+                <a href="{{ route('dashboard.reports.index') }}"
+                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
+                   ">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-chart-pie text-white/80 group-hover:text-white"></i>
                 </div>
@@ -86,17 +83,16 @@
         @role('User')
             <!-- Customers -->
             <a href="{{ route('dashboard.customers.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.customers.*') }">
-                <div class="w-8 h-8 flex items-center justify-center">
-                    <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
-                </div>
-                <span class="font-medium">Pelanggan</span>
-            </a>
-            <!-- Transactions -->
-            <a href="{{ route('dashboard.transactions.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.transactions.*') }">
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
+                    </div>
+                    <span class="font-medium">Pelanggan</span>
+                </a>
+                <!-- Transactions -->
+                <a href="{{ route('dashboard.transactions.index') }}"
+                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
+                    ">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-receipt text-white/80 group-hover:text-white"></i>
                 </div>
@@ -106,8 +102,7 @@
 
             <!-- Reports -->
             <a href="{{ route('dashboard.reports.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                :class="{ 'bg-white/10 shadow-md': request() - > routeIs('dashboard.reports.*') }">
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-chart-pie text-white/80 group-hover:text-white"></i>
                 </div>

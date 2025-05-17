@@ -17,26 +17,26 @@
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No
+                    <tr class="text-center">
+                        <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            No
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Nama
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Harga
                         </th>
 
                         <th scope="col"
-                            class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     @forelse($services as $index => $service)
-                        <tr>
+                        <tr class="text-center">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ ($services->currentPage() - 1) * $services->perPage() + $index + 1 }}
                             </td>
@@ -47,7 +47,7 @@
                             </td>
 
 
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
                                 <x-action-buttons :item="$service" editRoute="dashboard.services.edit"
                                     deleteRoute="dashboard.services.destroy" />
                             </td>

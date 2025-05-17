@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaction;
-use App\Models\Customer;
 use App\Models\Service;
+use App\Models\Customer;
+use App\Models\Transaction;
+use Spatie\LaravelPdf\Facades\Pdf;
+use Spatie\LaravelPdf\Enums\Orientation;
 use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
 
@@ -24,8 +26,8 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        $services = Service::select('id', 'name', 'price')->get(); // Ambil hanya kolom yang diperlukan
-        $customers = Customer::select('id', 'name', 'phone')->get(); // Ambil hanya kolom yang diperlukan
+        $services = Service::select('id', 'name',)->get(); // Ambil hanya kolom yang diperlukan
+        $customers = Customer::select('id', 'name')->get(); // Ambil hanya kolom yang diperlukan
 
 
         return view('dashboard.transactions.create', compact('customers', 'services'));
@@ -49,7 +51,36 @@ class TransactionController extends Controller
     {
         // return view('dashboard.transactions.show', compact('transaction'));
     }
+    /**
+     * Tampilkan form untuk mencetak struk transaksi.
+     */
+    public function cetakStruk(Transaction $transaction)
+    {
+        // Format tanggal untuk nama file
+        $date = \Carbon\Carbon::parse($transaction->created_at)->format('Y-m-d');
 
+        // Buat nama file yang aman (tanpa spasi dan karakter khusus)
+        $customerName = str_replace([' ', '/', '\\', '.', ','], '-', $transaction->customer->name);
+        $fileName = "Struk-{$customerName}-{$date}.pdf";
+
+        return Pdf::view('dashboard.transactions.struk', [
+            'transaction' => $transaction,
+            'customer' => $transaction->customer,
+            'service' => $transaction->service,
+        ])
+            ->papersize(80, 150, 'mm') // Lebar 80mm, tinggi auto
+            ->orientation(Orientation::Portrait)
+            ->margins(2, 2, 2, 2, 'mm') // Margin kecil 2mm
+            ->download($fileName); // Nama file yang dinamis
+    }
+    /**
+     * Tampilkan detail transaksinya.
+     */
+    public function publicShow($id)
+    {
+        $transaction = Transaction::with(['customer', 'service'])->findOrFail($id);
+        return view('public.transaction_detail', compact('transaction'));
+    }
     /**
      * Tampilkan form edit transaksi.
      */
@@ -57,7 +88,7 @@ class TransactionController extends Controller
     {
         $customers = Customer::select('id', 'name')->get(); // Ambil hanya kolom yang diperlukan
 
-        $services = Service::all();
+        $services = Service::select('id', 'name')->get(); // Ambil hanya kolom yang diperlukan
         return view('dashboard.transactions.edit', compact('transaction', 'customers', 'services'));
     }
 

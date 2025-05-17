@@ -91,7 +91,11 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
-        $user->delete();
-        return redirect()->route('dashboard.users.index')->with('success', 'User deleted successfully.');
+        try {
+            $user->delete();
+            return redirect()->route('dashboard.users.index')->with('success', 'User Berhasil Dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'gagal menghapus: ' . $e->getMessage());
+        }
     }
 }

@@ -4,49 +4,52 @@
             'Transaksi' => null,
         ]" />
 
+        <!-- Search -->
+
 
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-            <h3 class="text-lg font-semibold text-gray-800">Daftar transactions</h3>
+            <h3 class="text-lg font-semibold text-gray-800">Daftar Transaksi</h3>
             <x-link href="{{ route('dashboard.transactions.create') }}">
-                <i class="fas fa-plus mr-2"></i> Tambah Transaction
+                <i class="fas fa-plus mr-2"></i> Tambah Transaksi
             </x-link>
+
         </div>
 
         <!-- Table -->
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No
+                    <tr class="text-center">
+                        <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            No
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             transaction
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Layanan
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Tanggal Transaksi
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Total Pembayaran
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Pembayaran
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Status
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Aksi</th>
                     </tr>
                 </thead>
@@ -93,7 +96,11 @@
                                 @endif
                             </td>
 
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <td class="flex px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                {{-- Aksi: icon untuk cetak struk --}}
+                                <a href="{{ route('dashboard.transactions.struk', $transaction->id) }}" target="_blank">
+                                    <i class="fas fa-print mr-2"></i>
+                                </a>
                                 <x-action-buttons :item="$transaction" editRoute="dashboard.transactions.edit"
                                     deleteRoute="dashboard.transactions.destroy" />
                             </td>

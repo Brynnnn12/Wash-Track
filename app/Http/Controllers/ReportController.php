@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Report;
 use Illuminate\Support\Str;
+use Spatie\LaravelPdf\Facades\Pdf;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
@@ -117,5 +119,21 @@ class ReportController extends Controller
         $report->delete();
         return redirect()->route('dashboard.reports.index')
             ->with('success', 'Report deleted successfully.');
+    }
+    /**
+     * Export the report to PDF.
+     */
+    public function exportPdf()
+    {
+        // Format tanggal untuk nama file
+        $date = now()->format('Y-m-d');
+        // Buat nama file yang aman (tanpa spasi dan karakter khusus)
+        $fileName = 'Report-' . Str::slug('Laporan Harian', '-') . '-' . $date . '.pdf';
+        // Ambil data laporan dari database
+
+        $reports = Report::where('user_id', Auth::id())->get();
+
+        return Pdf::view('dashboard.reports.pdf', compact('reports'))
+            ->download($fileName);
     }
 }

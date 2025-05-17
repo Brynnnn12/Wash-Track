@@ -16,31 +16,31 @@
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No
+                    <tr class="text-center">
+                        <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            No
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Nama
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             No HP
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Alamat
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Tipe Mobil
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Plat Nomor
                         </th>
                         <th scope="col"
-                            class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Aksi</th>
                     </tr>
                 </thead>

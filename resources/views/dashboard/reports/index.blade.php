@@ -8,9 +8,14 @@
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <h3 class="text-lg font-semibold text-gray-800">Daftar Laporan</h3>
-            <x-link href="{{ route('dashboard.reports.create') }}">
-                <i class="fas fa-plus mr-2"></i> Tambah Laporan
-            </x-link>
+            <div class="flex space-x-2 mt-4 md:mt-0">
+                <x-link href="{{ route('dashboard.reports.create') }}">
+                    <i class="fas fa-plus mr-2"></i> Tambah Laporan
+                </x-link>
+                <x-link href="{{ route('dashboard.reports.pdf') }}" target="_blank" class="bg-red-600 text-white">
+                    <i class="fas fa-file-pdf mr-2"></i> Cetak PDF
+                </x-link>
+            </div>
         </div>
 
         <!-- Table -->
