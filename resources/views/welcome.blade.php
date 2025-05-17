@@ -53,7 +53,7 @@
     <main class="h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-4">
         <div class="max-w-xl mx-auto text-center px-4 py-12">
             <!-- Animated Car Wash Icon -->
-            <div class="mb-8 animate-bounce">
+            <div class="mb-8">
                 <svg class="mx-auto w-32 h-32 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"

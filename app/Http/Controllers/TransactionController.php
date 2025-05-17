@@ -17,17 +17,20 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::with(['customer', 'service'])->paginate(10);
+        $transactions = Transaction::with(['customer', 'service'])
+            ->orderBy('transaction_date', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
         return view('dashboard.transactions.index', compact('transactions'));
     }
-
     /**
      * Tampilkan form buat transaksi baru.
      */
     public function create()
     {
-        $services = Service::select('id', 'name',)->get(); // Ambil hanya kolom yang diperlukan
-        $customers = Customer::select('id', 'name')->get(); // Ambil hanya kolom yang diperlukan
+        $services = Service::select('id', 'name', 'price')->get(); // Ambil hanya kolom yang diperlukan
+        $customers = Customer::select('id', 'name', 'vehicle_plate')->get(); // Ambil hanya kolom yang diperlukan
 
 
         return view('dashboard.transactions.create', compact('customers', 'services'));
@@ -79,16 +82,16 @@ class TransactionController extends Controller
     public function publicShow($id)
     {
         $transaction = Transaction::with(['customer', 'service'])->findOrFail($id);
-        return view('public.transaction_detail', compact('transaction'));
+        return view('public.show', compact('transaction'));
     }
     /**
      * Tampilkan form edit transaksi.
      */
     public function edit(Transaction $transaction)
     {
-        $customers = Customer::select('id', 'name')->get(); // Ambil hanya kolom yang diperlukan
+        $customers = Customer::select('id', 'name', 'vehicle_plate')->get(); // Ambil hanya kolom yang diperlukan
 
-        $services = Service::select('id', 'name')->get(); // Ambil hanya kolom yang diperlukan
+        $services = Service::select('id', 'name', 'price')->get(); // Ambil hanya kolom yang diperlukan
         return view('dashboard.transactions.edit', compact('transaction', 'customers', 'services'));
     }
 
