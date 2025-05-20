@@ -50,7 +50,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <main class="h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-4">
+    <main class="min-h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-4">
         <div class="max-w-xl mx-auto text-center px-4 py-12">
             <!-- Animated Car Wash Icon -->
             <div class="mb-8">
