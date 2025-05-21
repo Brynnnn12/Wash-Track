@@ -29,8 +29,10 @@
                 <div>
                     <x-input-label for="password" value="Password" class="mb-2" />
 
-                    <x-text-input id="password" name="password" value="{{ old('password', $user->password) }}"
-                        required />
+                    <x-text-input id="password" type="password" name="password"
+                        placeholder="Masukkan password baru (kosongkan jika tidak ingin mengubah)" />
+
+                    <p class="text-sm text-gray-500 mt-1">Biarkan kosong jika tidak ingin mengubah password</p>
 
                     <x-input-error :messages="$errors->get('password')" class="mt-1" />
                 </div>

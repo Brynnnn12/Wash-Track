@@ -97,10 +97,14 @@
                             </td>
 
                             <td class="flex px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                                {{-- Aksi: icon untuk cetak struk --}}
-                                <a href="{{ route('dashboard.transactions.struk', $transaction->id) }}" target="_blank">
-                                    <i class="fas fa-print mr-2"></i>
-                                </a>
+                                {{-- jika status selesai tampilkan cetak struk --}}
+
+                                @if ($transaction->status === 'completed')
+                                    <a href="{{ route('dashboard.transactions.struk', $transaction->id) }}"
+                                        target="_blank">
+                                        <i class="fas fa-print mr-2"></i>
+                                    </a>
+                                @endif
                                 <x-action-buttons :item="$transaction" editRoute="dashboard.transactions.edit"
                                     deleteRoute="dashboard.transactions.destroy" />
                             </td>

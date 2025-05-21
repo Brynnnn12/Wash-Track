@@ -125,4 +125,7 @@ class TransactionController extends Controller
         return redirect()->route('dashboard.transactions.index')
             ->with('success', 'Transaksi berhasil dihapus.');
     }
+    /**
+     * update status transaksi
+     */
 }

@@ -8,49 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        .hero-height {
-            min-height: calc(100vh - 128px);
-        }
-    </style>
+
 </head>
 
 <body class="bg-gray-50 font-sans antialiased">
     <x-dashboard.message />
     <!-- Navbar Sederhana -->
-    <nav class="bg-white shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <!-- Ganti icon dengan icon mobil -->
-                    <i class="fa-solid fa-car fa-2xl"></i>
-                    <span class="ml-2 text-xl font-semibold text-gray-800">Wash Track</span>
-                </div>
-                <!-- Tombol Login/Register -->
-                <div class="flex items-center space-x-3">
-                    @auth
-
-                        <form method="POST" action="{{ route('logout') }}" class="">
-                            @csrf
-                            <button type="submit"
-                                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 transition">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>Logout</span>
-                            </button>
-                        </form>
-                    @else
-                        <a href="{{ route('login') }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition">Login</a>
-
-                    @endauth
-                </div>
-            </div>
-        </div>
-    </nav>
+    <x-home.navbar />
 
     <!-- Hero Section -->
-    <main class="min-h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-4">
+    <main class=" bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-4">
         <div class="max-w-xl mx-auto text-center px-4 py-12">
             <!-- Animated Car Wash Icon -->
             <div class="mb-8">
@@ -82,14 +49,11 @@
 
 
         </div>
+
     </main>
 
     <!-- Footer Sederhana -->
-    <footer class="bg-white border-t border-gray-200 py-4">
-        <div class="max-w-6xl mx-auto px-4 text-center text-gray-500 text-sm">
-            <p>&copy; <span id="year"></span> PT. Mencari Cinta Sejati Digital. All rights reserved.</p>
-        </div>
-    </footer>
+    <x-home.footer />
 
     <script>
         // Auto update year in footer
