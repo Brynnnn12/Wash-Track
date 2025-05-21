@@ -3,7 +3,10 @@
         <div class="max-w-7xl mx-auto px-4">
             <!-- Status Card -->
             <div class="bg-white shadow-md col-span-3 rounded-lg p-4 mb-4">
-                <h2 class="text-xl font-semibold">Status Transaksi</h2>
+                <div class="flex items-center">
+                    <i class="fas fa-tachometer-alt text-blue-500 text-2xl"></i>
+                    <h1 class="text-2xl font-semibold ml-2">Status Transaksi</h1>
+                </div>
                 <p class="mt-2">Ada {{ $pendingTransactions }} Transaksi Belum Diselesaikan</p>
             </div>
 
@@ -11,21 +14,34 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
                 <!-- Transaksi Hari Ini -->
                 <div class="bg-white shadow-md rounded-lg p-4">
-                    <h2 class="text-xl font-semibold text-blue-600">Transaksi Hari Ini</h2>
+                    <div class="flex gap-2">
+                        <i class="fas fa-shopping-cart text-blue-500 text-xl"></i>
+
+                        <h2 class="text-xl font-semibold text-blue-600">Transaksi Hari Ini</h2>
+                    </div>
                     <p class="mt-2 text-3xl font-bold">{{ $todayTransactions }}</p>
                     <p class="text-gray-500">Total transaksi yang dibuat hari ini</p>
                 </div>
 
                 <!-- Pendapatan Hari Ini -->
                 <div class="bg-white shadow-md rounded-lg p-4">
-                    <h2 class="text-xl font-semibold text-green-600">Pendapatan Hari Ini</h2>
+                    <div class="flex gap-2">
+                        <i class="fas fa-dollar text-green-500 text-xl"></i>
+
+                        <h2 class="text-xl font-semibold text-green-600">Pendapatan Hari Ini</h2>
+
+                    </div>
                     <p class="mt-2 text-3xl font-bold">Rp {{ number_format($todayIncome, 0, ',', '.') }}</p>
                     <p class="text-gray-500">Total pendapatan dari transaksi hari ini</p>
                 </div>
 
                 <!-- Total Pelanggan -->
                 <div class="bg-white shadow-md rounded-lg p-4">
-                    <h2 class="text-xl font-semibold text-purple-600">Total Pelanggan</h2>
+                    <div class="flex gap-2">
+                        <i class="fas fa-users text-blue-500 text-xl"></i>
+
+                        <h2 class="text-xl font-semibold text-blue-600">Total Pelanggan</h2>
+                    </div>
                     <p class="mt-2 text-3xl font-bold">{{ $totalCustomers }}</p>
                     <p class="text-gray-500">Jumlah pelanggan yang datang hari ini</p>
                 </div>
@@ -33,7 +49,10 @@
 
             <!-- Recent Transactions -->
             <div class="bg-white shadow-md rounded-lg p-4">
-                <h2 class="text-xl font-semibold mb-4">Transaksi Terbaru</h2>
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-history text-blue-500 text-2xl"></i>
+                    <h1 class="text-2xl font-semibold ml-2">Transaksi Terbaru</h1>
+                </div>
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
