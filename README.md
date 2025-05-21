@@ -1,6 +1,6 @@
 # WashTrack - Sistem Manajemen Usaha Cuci Kendaraan
 
-![WashTrack Logo](public/images/logo.png)
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKOtqwaKloqyKBLYEepy7vlJUhtVNf45tP1Q&s" alt="Total Downloads">
 
 ## Tentang WashTrack
 
