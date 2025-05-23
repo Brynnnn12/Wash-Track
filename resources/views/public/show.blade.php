@@ -43,13 +43,13 @@
             <!-- Transaction Info -->
             <div class="bg-white p-5 rounded-b-lg">
                 <div class="border-b pb-4 mb-4">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-gray-600">ID Transaksi:</span>
-                        <span class="font-bold">TRX{{ $transaction->id }}</span>
+                    <div class="flex justify-between gap-8 items-center mb-2">
+                        <span class="text-gray-600 whitespace-nowrap">ID Transaksi:</span>
+                        <span class=" text-xs font-bold">TRX{{ $transaction->id }}</span>
                     </div>
                     <div class="flex justify-between items-center">
                         <span class="text-gray-600">Tanggal:</span>
-                        <span>{{ \Carbon\Carbon::parse($transaction->created_at)->format('d M Y, H:i') }}</span>
+                        <span>{{ \Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}</span>
                     </div>
                 </div>
 

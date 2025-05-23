@@ -74,7 +74,7 @@ class TransactionController extends Controller
             ->papersize(80, 150, 'mm') // Lebar 80mm, tinggi auto
             ->orientation(Orientation::Portrait)
             ->margins(2, 2, 2, 2, 'mm') // Margin kecil 2mm
-            ->download($fileName); // Nama file yang dinamis
+            ->inline($fileName); // Nama file yang dinamis
     }
     /**
      * Tampilkan detail transaksinya.

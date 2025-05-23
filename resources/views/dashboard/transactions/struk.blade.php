@@ -116,6 +116,15 @@
         <p class="text-[10px]">1. Cuci Mobil Reguler</p>
         <p class="text-[10px]">2. Cuci Mobil Premium</p>
         <p class="text-[10px]">3. Cuci + Wax</p>
+
+    </div>
+    <!-- QR Code untuk direct link -->
+    <!-- QR Code untuk direct link -->
+    <div class="flex flex-col items-center justify-center mt-4 mb-2">
+        <div class="flex justify-center w-full">
+            {!! DNS2D::getBarcodeHTML(url("public/transactions/{$transaction->id}"), 'QRCODE', 4, 4) !!}
+        </div>
+        <div class="text-xs mt-1">Scan untuk melihat detail</div>
     </div>
 
 
