@@ -1,6 +1,6 @@
 @props(['item', 'editRoute', 'deleteRoute', 'edit' => true])
 
-<div class="flex justify-end space-x-3" x-data="{ showDeleteModal: false }">
+<div class="flex justify-center space-x-3" x-data="{ showDeleteModal: false }">
     @if ($edit)
         <a href="{{ route($editRoute, $item) }}" class="text-blue-600 hover:text-blue-900 transition-colors duration-200">
             <i class="fas fa-edit"></i>

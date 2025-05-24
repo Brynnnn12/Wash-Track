@@ -47,7 +47,7 @@
                             </td>
 
 
-                            <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                            <td class="px-6 py-4  text-center  text-sm font-medium">
                                 <x-action-buttons :item="$service" editRoute="dashboard.services.edit"
                                     deleteRoute="dashboard.services.destroy" />
                             </td>

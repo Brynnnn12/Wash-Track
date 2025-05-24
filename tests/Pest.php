@@ -45,3 +45,31 @@ function something()
 {
     // ..
 }
+
+
+/**
+ * Membuat user dengan role Admin
+ * 
+ * @return \App\Models\User
+ */
+function createAdminUser()
+{
+    $user = \App\Models\User::factory()->create();
+    $role = Spatie\Permission\Models\Role::create(['name' => 'Admin']);
+    $user->assignRole($role);
+
+    return $user;
+}
+/**
+ * Membuat user dengan role User
+ * 
+ * @return \App\Models\User
+ */
+function createUser()
+{
+    $user = \App\Models\User::factory()->create();
+    $role = Spatie\Permission\Models\Role::create(['name' => 'User']);
+    $user->assignRole($role);
+
+    return $user;
+}

@@ -46,7 +46,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     @forelse($customers as $index => $customer)
-                        <tr>
+                        <tr class="text-center">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ ($customers->currentPage() - 1) * $customers->perPage() + $index + 1 }}
                             </td>
@@ -60,7 +60,7 @@
                                 {{ $customer->vehicle_plate }}
                             </td>
 
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                 <x-action-buttons :item="$customer" editRoute="dashboard.customers.edit"
                                     deleteRoute="dashboard.customers.destroy" />
                             </td>

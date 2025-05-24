@@ -8,4 +8,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    // server: {
+    //     host: "192.168.0.107", // <== Izinkan akses dari semua IP jaringan
+    //     port: 5173, // opsional, bisa diubah jika konflik
+    // },
 });

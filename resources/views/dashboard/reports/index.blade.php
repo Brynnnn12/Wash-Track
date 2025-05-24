@@ -13,7 +13,7 @@
                     <i class="fas fa-plus mr-2"></i> Tambah Laporan
                 </x-link>
                 <x-link href="{{ route('dashboard.reports.pdf') }}" target="_blank" class="bg-red-600 text-white">
-                    <i class="fas fa-file-pdf mr-2"></i> Cetak PDF
+                    <i class="fas fa-file-pdf mr-2"></i> Cetak
                 </x-link>
             </div>
         </div>
