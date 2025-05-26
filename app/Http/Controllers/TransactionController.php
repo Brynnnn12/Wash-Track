@@ -59,6 +59,9 @@ class TransactionController extends Controller
      */
     public function cetakStruk(Transaction $transaction)
     {
+        // Explicitly load related models to avoid N+1 queries
+        $transaction->load(['customer', 'service']);
+
         // Format tanggal untuk nama file
         $date = \Carbon\Carbon::parse($transaction->created_at)->format('Y-m-d');
 

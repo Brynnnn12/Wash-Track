@@ -100,10 +100,15 @@
                                 {{-- jika status selesai tampilkan cetak struk --}}
 
                                 @if ($transaction->status === 'completed')
-                                    <a href="{{ route('dashboard.transactions.struk', $transaction->id) }}"
-                                        target="_blank">
-                                        <i class="fas fa-print mr-2"></i>
-                                    </a>
+                                    <div x-data="{ loading: false }">
+                                        <a href="{{ route('dashboard.transactions.struk', $transaction->id) }}"
+                                            target="_blank"
+                                            @click="loading = true; setTimeout(() => loading = false, 1000)"
+                                            class="relative inline-block">
+                                            <i class="fas fa-print mr-2" x-show="!loading"></i>
+                                            <i class="fas fa-spinner fa-spin mr-2" x-show="loading"></i>
+                                        </a>
+                                    </div>
                                 @endif
                                 <x-action-buttons :item="$transaction" editRoute="dashboard.transactions.edit"
                                     deleteRoute="dashboard.transactions.destroy" />

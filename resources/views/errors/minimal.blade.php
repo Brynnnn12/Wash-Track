@@ -60,11 +60,11 @@
 
         <!-- Error Message -->
         <div class="animate-fadein" style="animation-delay: 0.3s;">
-            <p class="text-2xl text-gray-600 mb-8" x-text="message"></p>
+            <p class="text-2xl text-gray-600 mb-4" x-text="message"></p>
         </div>
 
         <!-- Icon with subtle bounce -->
-        <div class="animate-bounce-slow text-gray-400 mb-8" style="animation-delay: 0.6s;">
+        <div class="animate-bounce-slow text-gray-400 mb-4" style="animation-delay: 0.6s;">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
