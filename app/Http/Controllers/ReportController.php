@@ -30,11 +30,30 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
-        $reports = Report::where('user_id', Auth::id())->paginate(10);
-        return view('dashboard.reports.index', compact('reports'));
-    }
+        $query = Report::where('user_id', Auth::id());
 
+        // Get filter parameters
+        $month = request('month');
+        $thisWeek = request('this_week');
+
+        // Apply month filter
+        if ($month) {
+            $query->whereMonth('report_date', $month);
+            $query->whereYear('report_date', now()->year);
+        }
+
+        // Apply this week filter
+        if ($thisWeek) {
+            $startOfWeek = now()->startOfWeek();
+            $endOfWeek = now()->endOfWeek();
+            $query->whereBetween('report_date', [$startOfWeek, $endOfWeek]);
+        }
+
+        $reports = $query->paginate(10);
+
+        // Pass filters to view for maintaining state
+        return view('dashboard.reports.index', compact('reports', 'month', 'thisWeek'));
+    }
     /**
      * Show the form for creating a new resource.
      */

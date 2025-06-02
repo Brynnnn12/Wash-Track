@@ -1,4 +1,3 @@
-<!-- filepath: d:\Latihan\leave-management\resources\views\components\dashboard\sidebar.blade.php -->
 <div class="fixed inset-y-0 left-0 bg-gradient-to-b from-blue-800 to-blue-900 text-white w-64 transform transition-all duration-300 ease-in-out lg:translate-x-0 shadow-xl z-50"
     :class="{ '-translate-x-full': !open }">
     <!-- Header -->
@@ -22,94 +21,78 @@
 
     <!-- Navigation -->
     <nav class="mt-4 px-3 space-y-1.5">
-        <!-- Dashboard -->
-        <a href="{{ route('dashboard') }}"
-            class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
+        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')"
+            class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
             <div class="w-8 h-8 flex items-center justify-center">
                 <i class="fa-solid fa-house text-white/80 group-hover:text-white"></i>
             </div>
             <span class="font-medium">Dashboard</span>
-        </a>
+        </x-nav-link>
 
         @role('Admin')
-    <!-- Users -->
-                <a href="{{ route('dashboard.users.index') }}"
-                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                    ">
+            <x-nav-link href="{{ route('dashboard.users.index') }}" :active="request()->routeIs('dashboard.users.*')"
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-user-shield text-white/80 group-hover:text-white"></i>
                 </div>
                 <span class="font-medium">Karyawan</span>
-            </a>
-            <!-- Customers -->
-            <a href="{{ route('dashboard.customers.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
-                    <div class="w-8 h-8 flex items-center justify-center">
-                        <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
-                    </div>
-                    <span class="font-medium">Pelanggan</span>
-                </a>
+            </x-nav-link>
+            <x-nav-link href="{{ route('dashboard.customers.index') }}" :active="request()->routeIs('dashboard.customers.*')"
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
+                </div>
+                <span class="font-medium">Pelanggan</span>
+            </x-nav-link>
 
-                <!-- Services -->
-                <a href="{{ route('dashboard.services.index') }}"
-                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                    ">
+            <x-nav-link href="{{ route('dashboard.services.index') }}" :active="request()->routeIs('dashboard.services.*')"
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-broom text-white/80 group-hover:text-white"></i>
                 </div>
                 <span class="font-medium">Layanan</span>
-            </a>
+            </x-nav-link>
 
-            <!-- Transactions -->
-            <a href="{{ route('dashboard.transactions.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
-                    <div class="w-8 h-8 flex items-center justify-center">
-                        <i class="fa-solid fa-receipt text-white/80 group-hover:text-white"></i>
-                    </div>
-                    <span class="font-medium">Transaksi</span>
-                </a>
-
-                <!-- Reports -->
-                <a href="{{ route('dashboard.reports.index') }}"
-                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                   ">
-                <div class="w-8 h-8 flex items-center justify-center">
-                    <i class="fa-solid fa-chart-pie text-white/80 group-hover:text-white"></i>
-                </div>
-                <span class="font-medium">Laporan</span>
-            </a>
-        @endrole
-
-        @role('User')
-            <!-- Customers -->
-            <a href="{{ route('dashboard.customers.index') }}"
-                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group" ">
-                    <div class="w-8 h-8 flex items-center justify-center">
-                        <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
-                    </div>
-                    <span class="font-medium">Pelanggan</span>
-                </a>
-                <!-- Transactions -->
-                <a href="{{ route('dashboard.transactions.index') }}"
-                    class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group"
-                    ">
+            <x-nav-link href="{{ route('dashboard.transactions.index') }}" :active="request()->routeIs('dashboard.transactions.*')"
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-receipt text-white/80 group-hover:text-white"></i>
                 </div>
                 <span class="font-medium">Transaksi</span>
-            </a>
+            </x-nav-link>
 
-
-            <!-- Reports -->
-            <a href="{{ route('dashboard.reports.index') }}"
+            <x-nav-link href="{{ route('dashboard.reports.index') }}" :active="request()->routeIs('dashboard.reports.*')"
                 class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
                 <div class="w-8 h-8 flex items-center justify-center">
                     <i class="fa-solid fa-chart-pie text-white/80 group-hover:text-white"></i>
                 </div>
                 <span class="font-medium">Laporan</span>
-            </a>
+            </x-nav-link>
         @endrole
 
+        @role('User')
+            <x-nav-link href="{{ route('dashboard.customers.index') }}" :active="request()->routeIs('dashboard.customers.*')"
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="fa-solid fa-users text-white/80 group-hover:text-white"></i>
+                </div>
+                <span class="font-medium">Pelanggan</span>
+            </x-nav-link>
+            <x-nav-link href="{{ route('dashboard.transactions.index') }}" :active="request()->routeIs('dashboard.transactions.*')"
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="fa-solid fa-receipt text-white/80 group-hover:text-white"></i>
+                </div>
+                <span class="font-medium">Transaksi</span>
+            </x-nav-link>
 
+            <x-nav-link href="{{ route('dashboard.reports.index') }}" :active="request()->routeIs('dashboard.reports.*')"
+                class="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-lg transition-all hover:bg-white/10 hover:shadow-md group">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="fa-solid fa-chart-pie text-white/80 group-hover:text-white"></i>
+                </div>
+                <span class="font-medium">Laporan</span>
+            </x-nav-link>
+        @endrole
     </nav>
 </div>

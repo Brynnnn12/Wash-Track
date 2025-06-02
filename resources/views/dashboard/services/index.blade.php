@@ -7,9 +7,9 @@
 
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-            <h3 class="text-lg font-semibold text-gray-800">Daftar services</h3>
+            <h3 class="text-lg font-semibold text-gray-800">Daftar Layanan</h3>
             <x-link href="{{ route('dashboard.services.create') }}">
-                <i class="fas fa-plus mr-2"></i> Tambah Customer
+                <i class="fas fa-plus mr-2"></i> Tambah Layanan
             </x-link>
         </div>
 
