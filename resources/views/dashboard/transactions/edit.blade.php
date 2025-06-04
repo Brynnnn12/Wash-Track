@@ -156,8 +156,8 @@
                         <option value="completed"
                             {{ old('status', $transaction->status) == 'completed' ? 'selected' : '' }}>Completed
                         </option>
-                        <option value="cancelled"
-                            {{ old('status', $transaction->status) == 'cancelled' ? 'selected' : '' }}>Cancelled
+                        <option value="canceled"
+                            {{ old('status', $transaction->status) == 'canceled' ? 'selected' : '' }}>Cancelled
                         </option>
                     </select>
                     <x-input-error :messages="$errors->get('status')" class="mt-1" />

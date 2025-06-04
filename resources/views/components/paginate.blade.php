@@ -12,7 +12,7 @@
     </div>
 
     @if ($paginator->hasPages())
-        <div class="flex space-x-2">
+        <div class="flex space-x-2 items-center">
             {{-- Previous --}}
             @if ($paginator->onFirstPage())
                 <span
@@ -26,16 +26,11 @@
                 </a>
             @endif
 
-            {{-- Page Numbers --}}
-            @foreach ($paginator->getUrlRange(1, $paginator->lastPage()) as $page => $url)
-                @if ($page == $paginator->currentPage())
-                    <span
-                        class="px-3 py-1 border border-gray-300 rounded-md text-sm text-white bg-blue-600">{{ $page }}</span>
-                @else
-                    <a href="{{ $url }}"
-                        class="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50">{{ $page }}</a>
-                @endif
-            @endforeach
+            {{-- Current Page Only --}}
+            <span class="px-3 py-1 border border-gray-300 rounded-md text-sm bg-blue-600 text-white">
+                {{ $paginator->currentPage() }}
+            </span>
+
 
             {{-- Next --}}
             @if ($paginator->hasMorePages())

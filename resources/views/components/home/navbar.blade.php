@@ -1,27 +1,29 @@
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 lg:h-20 items-center">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <i class="fa-solid fa-car fa-2xl text-blue-600"></i>
-                    <span class="ml-2 text-xl font-semibold text-gray-800">Wash Track</span>
+    <nav class="bg-tranparent fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Judul Aplikasi -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-blue-500 font-bold text-2xl">WashTrack</span>
                 </div>
-                <!-- Tombol Login/Register -->
-                <div class="flex items-center space-x-3">
+
+                <!-- Tombol Login/Logout -->
+                <div class="ml-4 flex items-center md:ml-6">
                     @auth
-                        <form method="POST" action="{{ route('logout') }}" class="">
+                        <!-- Jika sudah login -->
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit"
-                                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 transition flex items-center gap-2">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>Logout</span>
+                                class="bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition duration-300 flex items-center gap-2">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                Logout
                             </button>
                         </form>
                     @else
+                        <!-- Jika belum login -->
                         <a href="{{ route('login') }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition flex items-center gap-2">
-                            <i class="fas fa-sign-in-alt"></i>
-                            <span>Login</span>
+                            class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-sign-in-alt mr-2"></i>
+                            Login
                         </a>
                     @endauth
                 </div>

@@ -9,7 +9,7 @@ export default defineConfig({
         }),
     ],
     // server: {
-    //     host: "192.168.0.107", // <== Izinkan akses dari semua IP jaringan
+    //     host: "192.168.0.103", // <== Izinkan akses dari semua IP jaringan
     //     port: 5173, // opsional, bisa diubah jika konflik
     // },
 });
