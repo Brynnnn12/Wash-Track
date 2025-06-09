@@ -17,6 +17,8 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased bg-gray-100">
+    <!-- Loading Spinner -->
+    <x-home.loading />
     <div class="min-h-screen flex flex-col items-center justify-center w-auto bg-cover bg-center p-4 sm:p-6"
         style="background-image: url('{{ asset('assets/auth1.png') }}'); background-size: contain; background-repeat: no-repeat;">
 

@@ -25,6 +25,9 @@
 </head>
 
 <body class="font-sans antialiased bg-gray-100">
+    <!-- Loading Spinner -->
+    <x-home.loading />
+
     <div class="flex min-h-screen" x-data="{ open: false }">
         <!-- Sidebar -->
         <x-dashboard.sidebar />

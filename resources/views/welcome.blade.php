@@ -11,6 +11,8 @@
 </head>
 
 <body class="bg-white font-sans antialiased">
+    <!-- Loading Spinner -->
+    <x-home.loading />
     <!-- Message Alert -->
     <x-dashboard.message />
 
